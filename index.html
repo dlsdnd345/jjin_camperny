@@ -311,11 +311,13 @@
   .clients-inner { max-width: 1000px; margin: 0 auto; }
   .clients-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--accent); text-align: center; margin-bottom: 8px; }
   .clients-sub { font-size: 14px; color: var(--muted); text-align: center; margin-bottom: 40px; }
-  .clients-track-wrap { overflow: hidden; mask-image: linear-gradient(90deg, transparent, black 15%, black 85%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, black 15%, black 85%, transparent); }
-  .clients-track { display: flex; gap: 12px; width: max-content; animation: scroll-left 30s linear infinite; }
-  .clients-track:hover { animation-play-state: paused; }
-  @keyframes scroll-left { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-  .client-chip { display: inline-flex; align-items: center; white-space: nowrap; padding: 12px 24px; border-radius: 40px; font-size: 14px; font-weight: 500; border: 1px solid var(--border); background: var(--bg2); color: #ffffff; cursor: default; }
+  .clients-track-wrap { }
+  .clients-track {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+  }
+  .client-chip { display: flex; align-items: center; justify-content: center; text-align: center; white-space: nowrap; padding: 10px 14px; border-radius: 40px; font-size: 13px; font-weight: 500; border: 1px solid var(--border); background: var(--bg2); color: #ffffff; cursor: default; }
   .client-chip.hotel   { border-color: rgba(255, 255, 255, 0.15); color: #e2e8f0; }
   .client-chip.gov     { border-color: rgba(255, 255, 255, 0.15); color: #ecfdf5; }
   .client-chip.platform{ border-color: rgba(56, 189, 248, 0.2); color: #f0f9ff; }
@@ -457,7 +459,6 @@
     <p class="clients-sub">국내 주요 호텔·리조트·지자체·플랫폼과 협업했습니다</p>
     <div class="clients-track-wrap">
       <div class="clients-track">
-        <span class="client-chip hotel">인스파이어 리조트</span><span class="client-chip hotel">오크우드 프리미어</span><span class="client-chip hotel">서울 풀만호텔</span><span class="client-chip gov">인천시</span><span class="client-chip gov">고양시</span><span class="client-chip gov">태백시</span><span class="client-chip gov">세종시</span><span class="client-chip gov">서울 중구</span><span class="client-chip gov">단양시</span><span class="client-chip gov">철원역사문화공원</span><span class="client-chip gov">통계청</span><span class="client-chip platform">마이리얼트립</span><span class="client-chip platform">스카이스캐너</span><span class="client-chip platform">트립닷컴</span><span class="client-chip leisure">에버랜드</span><span class="client-chip leisure">NOL</span><span class="client-chip leisure">레고랜드</span><span class="client-chip leisure">캐리비안베이</span><span class="client-chip leisure">강화루지</span><span class="client-chip leisure">강촌레일바이크</span><span class="client-chip leisure">뮤지엄헤이</span>
         <span class="client-chip hotel">인스파이어 리조트</span><span class="client-chip hotel">오크우드 프리미어</span><span class="client-chip hotel">서울 풀만호텔</span><span class="client-chip gov">인천시</span><span class="client-chip gov">고양시</span><span class="client-chip gov">태백시</span><span class="client-chip gov">세종시</span><span class="client-chip gov">서울 중구</span><span class="client-chip gov">단양시</span><span class="client-chip gov">철원역사문화공원</span><span class="client-chip gov">통계청</span><span class="client-chip platform">마이리얼트립</span><span class="client-chip platform">스카이스캐너</span><span class="client-chip platform">트립닷컴</span><span class="client-chip leisure">에버랜드</span><span class="client-chip leisure">NOL</span><span class="client-chip leisure">레고랜드</span><span class="client-chip leisure">캐리비안베이</span><span class="client-chip leisure">강화루지</span><span class="client-chip leisure">강촌레일바이크</span><span class="client-chip leisure">뮤지엄헤이</span>
       </div>
     </div>
