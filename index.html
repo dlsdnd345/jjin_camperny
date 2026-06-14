@@ -80,7 +80,7 @@
     display: flex;
     justify-content: center;
     gap: 0;
-    max-width: 560px;
+    max-width: 760px;
     margin: 0 auto 40px;
     border: 1px solid var(--border);
     border-radius: 14px;
@@ -218,7 +218,7 @@
   /* ── SINGLE PACKAGES GRID ── */
   .pkg-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 16px;
   }
   .pkg-card {
@@ -289,13 +289,7 @@
     margin-top: 2px;
     flex-shrink: 0;
   }
-  .blog-card { grid-column: 1 / -1; }
-  .blog-inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-    align-items: center;
-  }
+  .blog-inner { display: flex; flex-direction: column; gap: 12px; }
   .blog-synergy {
     background: rgba(184,137,74,0.08);
     border: 1px solid rgba(184,137,74,0.25);
@@ -520,6 +514,169 @@
   tfoot td:first-child { text-align: left; color: var(--muted); }
   tfoot td.rec-col { background: rgba(184,137,74,0.12); }
 
+  /* ── PORTFOLIO ── */
+  .portfolio-section {
+    background: var(--bg2);
+    padding: 80px 24px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .portfolio-inner { max-width: 960px; margin: 0 auto; }
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .portfolio-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
+  }
+  .portfolio-card:hover { box-shadow: 0 8px 32px rgba(100,80,40,0.13); transform: translateY(-3px); border-color: rgba(184,137,74,0.4); }
+  .portfolio-thumb {
+    position: relative;
+    background: var(--bg3);
+    aspect-ratio: 9/16;
+    max-height: 220px;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  .portfolio-thumb img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    transition: transform 0.4s ease;
+  }
+  .portfolio-card:hover .portfolio-thumb img { transform: scale(1.05); }
+  .portfolio-thumb-bg {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 48px;
+  }
+  .portfolio-play {
+    position: absolute;
+    width: 44px; height: 44px;
+    background: rgba(255,255,255,0.92);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+    z-index: 1;
+  }
+  .portfolio-views {
+    position: absolute;
+    bottom: 10px; right: 10px;
+    background: rgba(0,0,0,0.7);
+    color: #fff;
+    font-size: 12px; font-weight: 700;
+    padding: 3px 9px;
+    border-radius: 20px;
+    letter-spacing: 0.3px;
+    z-index: 1;
+  }
+  .portfolio-platform {
+    position: absolute;
+    top: 10px; left: 10px;
+    background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366);
+    color: #fff;
+    font-size: 10px; font-weight: 700;
+    padding: 3px 9px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+    z-index: 1;
+  }
+  .portfolio-body { padding: 16px 18px 20px; flex: 1; display: flex; flex-direction: column; }
+  .portfolio-brand {
+    font-size: 10.5px; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--accent);
+    margin-bottom: 4px;
+  }
+  .portfolio-title { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 6px; line-height: 1.4; }
+  .portfolio-desc { font-size: 12px; color: var(--muted); line-height: 1.5; flex: 1; }
+  .portfolio-tag {
+    display: inline-block; margin-top: 10px;
+    font-size: 11px; font-weight: 700;
+    color: var(--green);
+    background: rgba(46,139,87,0.10);
+    padding: 3px 10px; border-radius: 20px;
+  }
+  /* 첫번째 카드 크게 */
+  .portfolio-card.featured {
+    grid-column: span 1;
+    grid-row: span 2;
+  }
+  .portfolio-card.featured .portfolio-thumb { max-height: 100%; height: 320px; }
+  .portfolio-views.hot { background: rgba(184,137,74,0.9); }
+
+  /* ── CLIENTS ── */
+  .clients-section {
+    background: var(--text);
+    padding: 52px 24px;
+    overflow: hidden;
+  }
+  .clients-inner { max-width: 960px; margin: 0 auto; }
+  .clients-eyebrow {
+    font-size: 11px; font-weight: 700; letter-spacing: 2.5px;
+    text-transform: uppercase; color: var(--accent);
+    text-align: center; margin-bottom: 6px;
+  }
+  .clients-sub {
+    font-size: 13px; color: rgba(255,255,255,0.4);
+    text-align: center; margin-bottom: 32px;
+  }
+  .clients-track-wrap {
+    overflow: hidden;
+    mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+  }
+  .clients-track {
+    display: flex;
+    gap: 10px;
+    width: max-content;
+    animation: scroll-left 28s linear infinite;
+  }
+  .clients-track:hover { animation-play-state: paused; }
+  @keyframes scroll-left {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  .client-chip {
+    display: inline-flex; align-items: center;
+    white-space: nowrap;
+    padding: 10px 20px;
+    border-radius: 40px;
+    font-size: 13px; font-weight: 600;
+    border: 1px solid;
+    flex-shrink: 0;
+    cursor: default;
+  }
+  .client-chip.hotel   { background: rgba(184,137,74,0.12); border-color: rgba(184,137,74,0.35); color: var(--accent2); }
+  .client-chip.gov     { background: rgba(46,139,87,0.10);  border-color: rgba(46,139,87,0.3);   color: #3aaa70; }
+  .client-chip.platform{ background: rgba(37,102,168,0.12); border-color: rgba(37,102,168,0.3);  color: #6aaae8; }
+  .client-chip.leisure { background: rgba(180,80,80,0.12);  border-color: rgba(180,80,80,0.3);   color: #e08080; }
+  .clients-legend {
+    display: flex; align-items: center; justify-content: center;
+    gap: 20px; flex-wrap: wrap;
+    margin-top: 24px;
+    font-size: 11.5px; color: rgba(255,255,255,0.35);
+    font-weight: 500;
+  }
+  .legend-dot {
+    display: inline-block;
+    width: 8px; height: 8px; border-radius: 50%;
+    margin-right: 5px;
+  }
+  .legend-dot.hotel    { background: var(--accent2); }
+  .legend-dot.gov      { background: #3aaa70; }
+  .legend-dot.platform { background: #6aaae8; }
+  .legend-dot.leisure  { background: #e08080; }
+
   /* ── WHY CARDS ── */
   .why-section {
     background: var(--card);
@@ -651,16 +808,20 @@
 <section class="hero">
   <div class="brand-tag">찐캠퍼니 × 광고 패키지</div>
   <h1>릴스 촬영<br><span>패키지</span></h1>
-  <p class="hero-sub">여행 크리에이터 팔로워 20만 · 실제 여행자가 반응하는 콘텐츠</p>
+  <p class="hero-sub">여행 크리에이터 팔로워 22만+ · 실제 여행자가 반응하는 콘텐츠</p>
 
   <div class="stats-row">
     <div class="stat">
-      <div class="stat-num">20만+</div>
+      <div class="stat-num">22만+</div>
       <div class="stat-label">팔로워</div>
     </div>
     <div class="stat">
-      <div class="stat-num">75만</div>
+      <div class="stat-num">700만</div>
       <div class="stat-label">최고 쇼츠 조회</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">50~80만</div>
+      <div class="stat-label">평균 쇼츠 조회</div>
     </div>
     <div class="stat">
       <div class="stat-num">드론</div>
@@ -709,6 +870,208 @@
   <span class="notice-item">방문 촬영 시 편도 150km 초과 시 거마비 추가 가능</span>
   <span class="notice-item">매니챗 유료 프로그램 사용 (댓글 유도 → 자동 DM → 예약 링크 전달)</span>
   <span class="notice-item">간이사업자 · 현금영수증 발행 가능</span>
+</div>
+
+<!-- ── PORTFOLIO ── -->
+<div class="portfolio-section">
+  <div class="portfolio-inner">
+    <div class="section-eyebrow">실제 성과 포트폴리오</div>
+    <h2 class="section-title">숫자로 증명합니다</h2>
+    <p class="section-desc">실제 광고 진행 릴스 · 조회수 합산 1,500만+</p>
+
+    <div class="portfolio-grid">
+
+      <!-- 1. 백령도 700만 (피처드) -->
+      <a class="portfolio-card featured" href="https://www.instagram.com/p/DK4ITAEvxzs/" target="_blank">
+        <div class="portfolio-thumb">
+          <img src="images/DK4ITAEvxzs.JPEG" alt="백령도 두무진">
+          <div class="portfolio-play">▶</div>
+          <span class="portfolio-platform">Instagram</span>
+          <span class="portfolio-views hot">👁 700만</span>
+        </div>
+        <div class="portfolio-body">
+          <div class="portfolio-brand">인천시 옹진군</div>
+          <div class="portfolio-title">백령도 두무진</div>
+          <div class="portfolio-desc">인천 서해 최북단 섬의 절경. 인천시 옹진군 광고 진행</div>
+          <span class="portfolio-tag">🏆 최고 조회수</span>
+        </div>
+      </a>
+
+      <!-- 2. 미야코지마 262만 -->
+      <a class="portfolio-card" href="https://www.instagram.com/p/DW5y-i-Eosa/" target="_blank">
+        <div class="portfolio-thumb">
+          <img src="images/DW5y-i-Eosa.JPEG" alt="미야코지마">
+          <div class="portfolio-play">▶</div>
+          <span class="portfolio-platform">Instagram</span>
+          <span class="portfolio-views">👁 262만</span>
+        </div>
+        <div class="portfolio-body">
+          <div class="portfolio-brand">미야코지마 호텔</div>
+          <div class="portfolio-title">미야코지마</div>
+          <div class="portfolio-desc">미야코지마 호텔 광고 참여</div>
+          <span class="portfolio-tag">해외 호텔 광고</span>
+        </div>
+      </a>
+
+      <!-- 3. 글램핑 캠프노마드 236만 -->
+      <a class="portfolio-card" href="https://www.instagram.com/p/DFe92rSvQH-/" target="_blank">
+        <div class="portfolio-thumb">
+          <img src="images/DFe92rSvQH-.JPEG" alt="캠프노마드">
+          <div class="portfolio-play">▶</div>
+          <span class="portfolio-platform">Instagram</span>
+          <span class="portfolio-views">👁 236만</span>
+        </div>
+        <div class="portfolio-body">
+          <div class="portfolio-brand">캠프노마드</div>
+          <div class="portfolio-title">글램핑 카라반</div>
+          <div class="portfolio-desc">신상 카라반 촬영</div>
+          <span class="portfolio-tag">글램핑 광고</span>
+        </div>
+      </a>
+
+      <!-- 4. 대이작도 200만 -->
+      <a class="portfolio-card" href="https://www.instagram.com/p/DV0SYFXEtLE/" target="_blank">
+        <div class="portfolio-thumb">
+          <img src="images/DV0SYFXEtLE.JPEG" alt="대이작도 풀등">
+          <div class="portfolio-play">▶</div>
+          <span class="portfolio-platform">Instagram</span>
+          <span class="portfolio-views">👁 200만</span>
+        </div>
+        <div class="portfolio-body">
+          <div class="portfolio-brand">인천시 옹진군</div>
+          <div class="portfolio-title">대이작도 풀등</div>
+          <div class="portfolio-desc">인천시 옹진군 광고 진행</div>
+          <span class="portfolio-tag">지자체 광고</span>
+        </div>
+      </a>
+
+      <!-- 5. 라플란드 글램핑 130만 -->
+      <a class="portfolio-card" href="https://www.instagram.com/p/DTe6wSoEiiF/" target="_blank">
+        <div class="portfolio-thumb">
+          <img src="images/DTe6wSoEiiF.JPEG" alt="라플란드 글램핑">
+          <div class="portfolio-play">▶</div>
+          <span class="portfolio-platform">Instagram</span>
+          <span class="portfolio-views">👁 130만</span>
+        </div>
+        <div class="portfolio-body">
+          <div class="portfolio-brand">라플란드</div>
+          <div class="portfolio-title">라플란드 글램핑</div>
+          <div class="portfolio-desc">글램핑 광고 촬영</div>
+          <span class="portfolio-tag">글램핑 광고</span>
+        </div>
+      </a>
+
+      <!-- 6. 촌캉스 100만 -->
+      <a class="portfolio-card" href="https://www.instagram.com/p/DTKU1bNEpke/" target="_blank">
+        <div class="portfolio-thumb">
+          <img src="images/DTKU1bNEpke.JPEG" alt="촌캉스">
+          <div class="portfolio-play">▶</div>
+          <span class="portfolio-platform">Instagram</span>
+          <span class="portfolio-views">👁 100만</span>
+        </div>
+        <div class="portfolio-body">
+          <div class="portfolio-brand">외갓집체험마을</div>
+          <div class="portfolio-title">촌캉스</div>
+          <div class="portfolio-desc">촌캉스 광고 촬영</div>
+          <span class="portfolio-tag">체험 광고</span>
+        </div>
+      </a>
+
+      <!-- 7. 미야코지마 스카이스캐너 55만 -->
+      <a class="portfolio-card" href="https://www.instagram.com/p/DYT6Wu_y_CT/" target="_blank">
+        <div class="portfolio-thumb">
+          <img src="images/DYT6Wu_y_CT.JPEG" alt="미야코지마 스카이스캐너">
+          <div class="portfolio-play">▶</div>
+          <span class="portfolio-platform">Instagram</span>
+          <span class="portfolio-views">👁 55만</span>
+        </div>
+        <div class="portfolio-body">
+          <div class="portfolio-brand">스카이스캐너</div>
+          <div class="portfolio-title">미야코지마</div>
+          <div class="portfolio-desc">스카이스캐너 광고 참여</div>
+          <span class="portfolio-tag">글로벌 플랫폼</span>
+        </div>
+      </a>
+
+      <!-- 8. 태백시 51만 -->
+      <a class="portfolio-card" href="https://www.instagram.com/p/DSOzV_vktp8/" target="_blank">
+        <div class="portfolio-thumb">
+          <img src="images/DSOzV_vktp8.JPEG" alt="태백">
+          <div class="portfolio-play">▶</div>
+          <span class="portfolio-platform">Instagram</span>
+          <span class="portfolio-views">👁 51만</span>
+        </div>
+        <div class="portfolio-body">
+          <div class="portfolio-brand">태백시</div>
+          <div class="portfolio-title">태백</div>
+          <div class="portfolio-desc">태백시 광고 촬영</div>
+          <span class="portfolio-tag">지자체 광고</span>
+        </div>
+      </a>
+
+      <!-- 9. 인스파이어 45만 -->
+      <a class="portfolio-card" href="https://www.instagram.com/p/DZTq6eAS0pO/" target="_blank">
+        <div class="portfolio-thumb">
+          <img src="images/DZTq6eAS0pO.JPEG" alt="인스파이어 리조트">
+          <div class="portfolio-play">▶</div>
+          <span class="portfolio-platform">Instagram</span>
+          <span class="portfolio-views">👁 45만</span>
+        </div>
+        <div class="portfolio-body">
+          <div class="portfolio-brand">인스파이어 리조트</div>
+          <div class="portfolio-title">인스파이어 리조트</div>
+          <div class="portfolio-desc">인스파이어 공동구매 매출 1억 달성</div>
+          <span class="portfolio-tag">💰 매출 1억</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</div>
+
+<!-- ── CLIENTS ── -->
+<div class="clients-section">
+  <div class="clients-inner">
+    <div class="clients-eyebrow">함께한 브랜드</div>
+    <p class="clients-sub">국내 주요 호텔·리조트·지자체·플랫폼과 협업했습니다</p>
+    <div class="clients-track-wrap">
+      <div class="clients-track">
+        <span class="client-chip hotel">인스파이어 리조트</span>
+        <span class="client-chip hotel">오크우드 프리미어</span>
+        <span class="client-chip hotel">서울 풀만호텔</span>
+        <span class="client-chip gov">인천시</span>
+        <span class="client-chip gov">고양시</span>
+        <span class="client-chip gov">태백시</span>
+        <span class="client-chip gov">세종시</span>
+        <span class="client-chip gov">서울 중구</span>
+        <span class="client-chip platform">마이리얼트립</span>
+        <span class="client-chip platform">스카이스캐너</span>
+        <span class="client-chip platform">트립닷컴</span>
+        <span class="client-chip leisure">에버랜드</span>
+        <span class="client-chip leisure">NOL</span>
+        <!-- 무한 루프용 복제 -->
+        <span class="client-chip hotel">인스파이어 리조트</span>
+        <span class="client-chip hotel">오크우드 프리미어</span>
+        <span class="client-chip hotel">서울 풀만호텔</span>
+        <span class="client-chip gov">인천시</span>
+        <span class="client-chip gov">고양시</span>
+        <span class="client-chip gov">태백시</span>
+        <span class="client-chip gov">세종시</span>
+        <span class="client-chip gov">서울 중구</span>
+        <span class="client-chip platform">마이리얼트립</span>
+        <span class="client-chip platform">스카이스캐너</span>
+        <span class="client-chip platform">트립닷컴</span>
+        <span class="client-chip leisure">에버랜드</span>
+        <span class="client-chip leisure">NOL</span>
+      </div>
+    </div>
+    <div class="clients-legend">
+      <span class="legend-dot hotel"></span>호텔·리조트
+      <span class="legend-dot gov"></span>지자체
+      <span class="legend-dot platform"></span>여행 플랫폼
+      <span class="legend-dot leisure"></span>레저
+    </div>
+  </div>
 </div>
 
 <!-- ── WHY ── -->
@@ -864,21 +1227,20 @@
     </div>
 
     <!-- 블로그 -->
-    <div class="pkg-card blog-card">
+    <div class="pkg-card">
       <div class="pkg-icon">✍️</div>
       <div class="pkg-name">네이버 블로그</div>
       <div class="pkg-price">10<span>만원</span></div>
       <div class="pkg-divider"></div>
-      <div class="blog-inner">
-        <div class="pkg-features">
-          <div class="feat"><span class="feat-icon">✓</span> 포스팅 1건 (사진 10장 + 상세 후기)</div>
-          <div class="feat"><span class="feat-icon">✓</span> 가격 · 주차 · 예약 팁 등 상세 정보 포함</div>
-          <div class="feat"><span class="feat-icon">✓</span> 릴스에서 다 못 보여준 정보 심층 전달</div>
-        </div>
-        <div class="blog-synergy">
-          <div class="synergy-title">📈 영상 + 블로그 시너지</div>
-          <p>영상은 즉각적인 노출, 블로그는 장기 검색 유입. 두 채널을 함께 진행하면 단기 바이럴과 장기 SEO를 동시에 잡을 수 있습니다.</p>
-        </div>
+      <div class="pkg-features">
+        <div class="feat"><span class="feat-icon">✓</span> 포스팅 1건 (사진 10장 + 상세 후기)</div>
+        <div class="feat"><span class="feat-icon">✓</span> 가격 · 주차 · 예약 팁 등 상세 정보 포함</div>
+        <div class="feat"><span class="feat-icon">✓</span> 릴스에서 다 못 보여준 정보 심층 전달</div>
+        <div class="feat"><span class="feat-icon">✓</span> 장기 검색 유입 (네이버 SEO)</div>
+      </div>
+      <div class="blog-synergy" style="margin-top: 16px;">
+        <div class="synergy-title">📈 영상 + 블로그 시너지</div>
+        <p>단기 바이럴 + 장기 SEO를 동시에 잡을 수 있습니다.</p>
       </div>
     </div>
 
@@ -912,10 +1274,10 @@
       <a class="case-link" href="https://www.youtube.com/shorts/LW009vRE22c" target="_blank">
         <div>
           <div class="case-label">실제 성과 사례</div>
-          <div class="case-desc">인스타 45만 · 쇼츠 75만 조회</div>
+          <div class="case-desc">인스타 45만 · 쇼츠 700만 조회</div>
         </div>
         <div class="case-stat">
-          <div class="case-stat-num">75만</div>
+          <div class="case-stat-num">700만</div>
           <div class="case-stat-sub">유튜브 쇼츠 조회</div>
         </div>
       </a>
@@ -962,7 +1324,7 @@
     <div class="pkg-icon" style="font-size:28px; margin-bottom: 12px;">📋</div>
     <p style="font-size:16px; font-weight:700; color: var(--text); margin-bottom: 8px;">릴스 N건 계약 패키지</p>
     <p>장기 또는 다건 계약은 별도 협의를 통해 더 유리한 조건으로 진행할 수 있습니다.</p>
-    <a class="cta-btn" href="https://www.instagram.com/jjin_camperny" target="_blank">카카오톡 / 인스타그램 문의하기 →</a>
+    <a class="cta-btn" href="https://open.kakao.com/o/scqKIsHg" target="_blank">카카오 문의하기 →</a>
   </div>
 </div>
 
