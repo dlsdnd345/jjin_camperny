@@ -570,14 +570,15 @@
   }
   .portfolio-views {
     position: absolute;
-    bottom: 10px; right: 10px;
-    background: rgba(0,0,0,0.7);
+    bottom: 10px; right: 8px;
+    background: rgba(0,0,0,0.75);
     color: #fff;
-    font-size: 12px; font-weight: 700;
-    padding: 3px 9px;
+    font-size: 15px; font-weight: 900;
+    padding: 5px 12px;
     border-radius: 20px;
     letter-spacing: 0.3px;
     z-index: 1;
+    backdrop-filter: blur(4px);
   }
   .portfolio-platform {
     position: absolute;
@@ -605,12 +606,6 @@
     background: rgba(46,139,87,0.10);
     padding: 3px 10px; border-radius: 20px;
   }
-  /* 첫번째 카드 크게 */
-  .portfolio-card.featured {
-    grid-column: span 1;
-    grid-row: span 2;
-  }
-  .portfolio-card.featured .portfolio-thumb { }
   .portfolio-views.hot { background: rgba(184,137,74,0.9); }
 
   /* ── CLIENTS ── */
@@ -881,7 +876,7 @@
     <div class="portfolio-grid">
 
       <!-- 1. 백령도 700만 (피처드) -->
-      <a class="portfolio-card featured" href="https://www.instagram.com/p/DK4ITAEvxzs/" target="_blank">
+      <a class="portfolio-card" href="https://www.instagram.com/p/DK4ITAEvxzs/" target="_blank">
         <div class="portfolio-thumb">
           <img src="images/DK4ITAEvxzs.JPEG" alt="백령도 두무진">
           <div class="portfolio-play">▶</div>
@@ -1028,6 +1023,7 @@
   </div>
 </div>
 
+
 <!-- ── CLIENTS ── -->
 <div class="clients-section">
   <div class="clients-inner">
@@ -1072,6 +1068,7 @@
     </div>
   </div>
 </div>
+
 
 <!-- ── WHY ── -->
 <div class="why-section">
@@ -1120,6 +1117,7 @@
   </div>
 </div>
 
+
 <!-- ── PROCESS ── -->
 <div class="process-section">
   <div class="process-inner">
@@ -1154,6 +1152,7 @@
     </div>
   </div>
 </div>
+
 
 <!-- ── SINGLE PACKAGES ── -->
 <div class="section">
@@ -1248,6 +1247,7 @@
 
 <div class="section-divider"></div>
 
+
 <!-- ── SET PACKAGES ── -->
 <div class="section">
   <div class="section-eyebrow">세트 패키지</div>
@@ -1328,6 +1328,7 @@
 </div>
 
 <div class="section-divider"></div>
+
 
 <!-- ── COMPARISON TABLE ── -->
 <div class="section">
@@ -1427,6 +1428,7 @@
     </table>
   </div>
 </div>
+
 
 <!-- ── FOOTER ── -->
 <footer>
